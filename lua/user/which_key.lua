@@ -71,7 +71,7 @@ wk.register({
 -- Resize current window using M-<arrow key>
 wk.register({
   ["<M-Up>"] = { "<cmd>resize +2<cr>", "Make window taller" },
-  ["<M-Down>"] = { "<cmd><resize -2<cr>", "Make window shorter" },
+  ["<M-Down>"] = { "<cmd>resize -2<cr>", "Make window shorter" },
   ["<M-Left>"] = { "<cmd>vertical resize +2<cr>", "Make window wider" },
   ["<M-Right>"] = { "<cmd>vertical resize -2<cr>", "Make window narrower" },
 }, { mode = "n" })
