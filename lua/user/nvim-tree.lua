@@ -6,16 +6,6 @@ if not status_ok then
   return
 end
 
--- Automatically close the tree when qutting a buffer
-vim.api.nvim_create_autocmd("BufEnter", {
-  nested = true,
-  callback = function()
-    if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
-      vim.cmd "quit"
-    end
-  end
-})
-
 tree.setup {
   -- Disable and hijack netrw (NeoVim's built-in file manager)
   disable_netrw = true,

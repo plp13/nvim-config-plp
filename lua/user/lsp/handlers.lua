@@ -73,14 +73,16 @@ local function lsp_keymaps(bufnr)
     ["K"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "LSP: view information" },
     ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "LSP: view implementation" },
     ["<C-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "LSP: view show signature info" },
-    ["<Leader>n"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "LSP: rename all references" },
     ["gr"] = { "<cmd>lua vim.lsp.buf.references()<cr>", "LSP: view all references to what's under the cursor" },
-    ["<Leader>a"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "LSP: perform code action" },
-    ["<Leader>l"] = { "<cmd>lua vim.diagnostic.open_float()<cr>", "LSP: view all LSP diagnostics" },
+    ["<Leader>l"] = "Language Server Protocol (LSP)",
+    ["<Leader>ln"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename all references" },
+    ["<Leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Perform code action" },
+    ["<Leader>ll"] = { "<cmd>lua vim.diagnostic.open_float()<cr>", "View all LSP diagnostics" },
+    ["<Leader>lq"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Manage LSP diagnostics" },
+    ["<Leader>lf"] = { "<cmd> lua vim.lsp.buf.formatting()<cr>", "Format code"},
     ["[d"] = { "<cmd>lua vim.diagnostic.goto_prev({ border = \"rounded\" })<cr>", "LSP: previous diagnostic" },
     ["gl"] = { "<cmd>lua vim.diagnostic.open_float({ border = \"rounded\" })<cr>", "LSP: show diagnostic information in window" },
     ["]d"] = { "<cmd>lua vim.diagnostic.goto_next({ border = \"rounded\" })<cr>", "LSP: next diagnostic" },
-    ["<Leader>q"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "LSP: manage LSP diagnostics" },
     }, { mode = "n", buffer = bufnr })
   end
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
