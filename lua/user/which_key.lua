@@ -47,15 +47,15 @@ vim.g.mapleader = " "
 -- M-w: delete buffer (File/Close)
 -- M-C: clear search highlights
 for _, m in pairs({ "n", "v", "i", "x", "c", "o", "s", "t" }) do
-wk.register({
-  ["<M-/>"] = { "<cmd>WhichKey<cr>", "Show all keyboard shortcuts" },
-  ["<M-n>"] = { "<cmd>enew<cr>", "New empty buffer" },
-  ["<M-s>"] = { "<cmd>write<cr>", "Save buffer" },
-  ["<M-w>"] = { "<cmd>Bdelete<cr>", "Delete buffer" },
-  ["<M-c>"] = { "<cmd>nohlsearch<cr>", "Clear search highlights" },
-  -- The following entries concern fixes and tidying up
-  ["Y"] = "Yank line",  -- fix missing which-key entry
-}, { mode = m })
+  wk.register({
+    ["<M-/>"] = { "<cmd>WhichKey<cr>", "Show all keyboard shortcuts" },
+    ["<M-n>"] = { "<cmd>enew<cr>", "New empty buffer" },
+    ["<M-s>"] = { "<cmd>write<cr>", "Save buffer" },
+    ["<M-w>"] = { "<cmd>Bdelete<cr>", "Delete buffer" },
+    ["<M-c>"] = { "<cmd>nohlsearch<cr>", "Clear search highlights" },
+    -- The following entries concern fixes and tidying up
+    ["Y"] = "Yank line", -- fix missing which-key entry
+  }, { mode = m })
 end
 
 -- Key mappings for *normal* mode

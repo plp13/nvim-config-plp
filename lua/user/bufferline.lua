@@ -52,10 +52,10 @@ bufferline.setup {
       guibg = { attribute = "bg", highlight = "TabLine" },
     },
     buffer_selected = {
-      guifg = {attribute="fg",highlight="TabLineSel"},
-      guibg = {attribute="bg",highlight="Normal"},
+      guifg = { attribute = "fg", highlight = "TabLineSel" },
+      guibg = { attribute = "bg", highlight = "Normal" },
       gui = "none"
-      },
+    },
     buffer_visible = {
       guifg = { attribute = "fg", highlight = "TabLine" },
       guibg = { attribute = "bg", highlight = "TabLine" },
@@ -69,9 +69,9 @@ bufferline.setup {
       guibg = { attribute = "bg", highlight = "TabLine" },
     },
     close_button_selected = {
-      guifg = {attribute="fg",highlight="TabLineSel"},
-      guibg ={attribute="bg",highlight="Normal"}
-      },
+      guifg = { attribute = "fg", highlight = "TabLineSel" },
+      guibg = { attribute = "bg", highlight = "Normal" }
+    },
     tab_selected = {
       guifg = { attribute = "fg", highlight = "TabLineSel" },
       guibg = { attribute = "bg", highlight = "Normal" },
@@ -120,9 +120,9 @@ bufferline.setup {
       guibg = { attribute = "bg", highlight = "Normal" },
     },
     separator_visible = {
-      guifg = {attribute="bg",highlight="TabLine"},
-      guibg = {attribute="bg",highlight="TabLine"}
-      },
+      guifg = { attribute = "bg", highlight = "TabLine" },
+      guibg = { attribute = "bg", highlight = "TabLine" },
+    },
     indicator_selected = {
       guifg = { attribute = "fg", highlight = "TabLineSel" },
       guibg = { attribute = "bg", highlight = "Normal" },

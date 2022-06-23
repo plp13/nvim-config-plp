@@ -9,8 +9,8 @@ end
 lualine.setup {
   options = {
     -- Separators between components and sections
-    component_separators = { left = '│', right = '│'},
-    section_separators = { left = '█║', right = '║█'},
+    component_separators = { left = "│", right = "│" },
+    section_separators = { left = "█║", right = "║█" },
   },
   -- Extensions
   extensions = { "nvim-tree" }

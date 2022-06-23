@@ -60,7 +60,7 @@ cmp.setup {
   -- Keyboard mappings
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),                         -- C-k jumps to previous completion menu item
-	["<C-j>"] = cmp.mapping.select_next_item(),                         -- C-j jumps to next item
+    ["<C-j>"] = cmp.mapping.select_next_item(),                         -- C-j jumps to next item
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }), -- C-b scrolls the docs window up
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),  -- C-f scrolls it down
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),  -- C-<Space> brings up the completion menu
@@ -103,9 +103,9 @@ cmp.setup {
   formatting = {
     -- Menu fields
     fields = {
-      "kind",  -- kind icon
-      "abbr",  -- abbreviation
-      "menu",  -- menu source
+      "kind", -- kind icon
+      "abbr", -- abbreviation
+      "menu", -- menu source
     },
     -- Menu item formatting function
     format = function(entry, vim_item)
