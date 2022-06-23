@@ -35,6 +35,7 @@ local options = {
   wrap = false,                            -- display lines as one long line
   scrolloff = 8,                           -- vertical scrolling begins when cursor is 8 lines before window top/bottom
   sidescrolloff = 16,                      -- horizontal scrolling begins when cursor is 16 lines before window side
+  colorcolumn = "80",                      -- show a vertical bar at column 80
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
 }
 

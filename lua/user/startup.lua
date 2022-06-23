@@ -118,4 +118,6 @@ if wk_status_ok then
       ["<tab>"] = "Open section",
     }, { mode = "n", buffer = bufnr })
   end
+  -- Hack: also hide the line at 80 colums
+  vim.opt_local["colorcolumn"] = ""
 end
