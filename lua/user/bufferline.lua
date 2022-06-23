@@ -129,3 +129,19 @@ bufferline.setup {
     },
   },
 }
+
+-- Which-key mappings for bufferline.nvim
+local wk_status_ok, wk = pcall(require, "which-key")
+if wk_status_ok then
+  -- Navigate buffers using S-<left arrow> or S-<right arrow>
+  wk.register({
+    ["<S-Right>"] = { "<cmd>BufferLineCycleNext<cr>", "Next buffer" },
+    ["<S-Left>"] = { "<cmd>BufferLineCyclePrev<cr>", "Previous buffer" },
+  }, { mode = "n" })
+
+  -- Move (reorder) the current buffer using C-S-<down arrow> or S-<up arrow>
+  wk.register({
+    ["<S-Down>"] = { "<cmd>BufferLineMoveNext<cr>", "Move buffer to the right" },
+    ["<S-Up>"] = { "<cmd>BufferLineMovePrev<cr>", "Move buffer to the left" },
+  }, { mode = "n" })
+end

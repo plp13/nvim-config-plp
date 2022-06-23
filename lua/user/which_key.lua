@@ -76,12 +76,6 @@ wk.register({
   ["<M-Right>"] = { "<cmd>vertical resize -2<cr>", "Make window narrower" },
 }, { mode = "n" })
 
--- Navigate buffers using S-<left arrow> or S-<right arrow>
-wk.register({
-  ["<S-Right>"] = { "<cmd>bnext<cr>", "Next buffer" },
-  ["<S-Left>"] = { "<cmd>bprevious<cr>", "Previous buffer" },
-}, { mode = "n" })
-
 -- Move current line up using M-k and down using M-j
 wk.register({
   ["<M-k>"] = { "<esc><cmd>move .-2<cr>", "Move text up" },
