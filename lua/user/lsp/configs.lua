@@ -11,16 +11,17 @@ local lspconfig = require("lspconfig")
 -- LSP servers (languages) to configure
 -- Feel free to add more
 local servers = {
-  "bashls", -- Bash
-  "clangd", -- C/C++
-  "dockerls", -- Docker
-  "jsonls", -- JSON
-  "pyright", -- Python
-  "rust_analyzer", -- Rust
-  "sqls", -- SQL
-  "sumneko_lua", -- Lua
-  "taplo", -- TOML
-  "yamlls", -- YAML
+  "bashls",         -- Bash
+  "clangd",         -- C/C++
+  "dockerls",       -- Docker
+  "jsonls",         -- JSON
+  "marksman",       -- Markdown
+  "pyright",        -- Python
+  "rust_analyzer",  -- Rust
+  "sqls",           -- SQL
+  "sumneko_lua",    -- Lua
+  "taplo",          -- TOML
+  "yamlls",         -- YAML
 }
 
 -- Instruct nvim-lsp-installer to automatically install the aforementioned LSP servers
