@@ -47,7 +47,7 @@ vim.g.mapleader = " "
 -- M-w: delete buffer (File/Close)
 -- M-c: clear search highlights
 -- M-b: toggle (soft) line break
--- M-p: toggle highlighting spelling mistakes
+-- M-e: toggle highlighting spelling mistakes
 for _, m in pairs({ "n", "v", "i", "x", "c", "o", "s", "t" }) do
   wk.register({
     ["<M-/>"] = { "<cmd>WhichKey<cr>", "Show all keyboard shortcuts" },
@@ -56,7 +56,7 @@ for _, m in pairs({ "n", "v", "i", "x", "c", "o", "s", "t" }) do
     ["<M-w>"] = { "<cmd>Bdelete<cr>", "Delete buffer" },
     ["<M-c>"] = { "<cmd>nohlsearch<cr>", "Clear search highlights" },
     ["<M-b>"] = { "<cmd>set wrap! linebreak<cr>", "Toggle (soft) line break"},
-    ["<M-p>"] = { "<cmd>set spell!<cr>", "Toggle highlighting spelling mistakes"},
+    ["<M-e>"] = { "<cmd>set spell!<cr>", "Toggle highlighting spelling mistakes"},
     -- The following entries concern fixes and tidying up
     ["Y"] = "Yank line", -- fix missing which-key entry
   }, { mode = m })
