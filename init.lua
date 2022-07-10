@@ -27,6 +27,7 @@ require "user.indent-blankline"
 
 -- Language Server Protocol (LSP)
 require "user.lsp"
+require "user.rust-tools"
 
 -- Editing utilities
 require "user.autopairs"

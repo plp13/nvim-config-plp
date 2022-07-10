@@ -78,10 +78,11 @@ return packer.startup(function(use)
    -- Language Server Protocol (LSP)
   use "neovim/nvim-lspconfig"                           -- LSP base configuration
   use "williamboman/nvim-lsp-installer"                 -- LSP server manager
+  use "simrat39/rust-tools.nvim"                        -- advanced LSP client for Rust
   -- Editing utilities
   use "windwp/nvim-autopairs"                           -- automatically close parentheses, strings, etc.
   use "numToStr/Comment.nvim"                           -- comment out lines and blocks easily
-  -- File management
+   -- File management
   use "kyazdani42/nvim-tree.lua"                        -- a file manager
   -- Searching
   use "nvim-telescope/telescope.nvim"                   -- a utility for finding stuff quickly

@@ -24,7 +24,7 @@ end
 -- Find more here: https://www.nerdfonts.com/cheat-sheet
 local kind_icons = {
   Text = "",
-  Method = "",
+  Method = "μ",
   Function = "",
   Constructor = "",
   Field = "",
