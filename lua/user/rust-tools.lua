@@ -12,7 +12,8 @@ local function lsp_keymaps(bufnr)
   local wk_status_ok, wk = pcall(require, "which-key")
   if wk_status_ok then
     wk.register({
-      ["<Leader>lr"] = { "<cmd>RustRun<cr>", "Run program" },
+      ["<Leader>lr"] = { "<cmd>RustRunnables<cr>", "Run" },
+      ["<Leader>ld"] = { "<cmd>RustDebuggables<cr>", "Debug" },
     }, { mode = "n", buffer = bufnr })
   end
 end

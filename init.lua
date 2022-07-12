@@ -7,6 +7,7 @@ require "user.plugins"
 -- User interface
 require "user.ui"
 require "user.neovide"
+require "user.popui"
 
 -- Startup
 require "user.startup"

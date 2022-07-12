@@ -50,6 +50,8 @@ return packer.startup(function(use)
   use "RRethy/vim-illuminate"                           -- illuminate text in buffer
   use "kyazdani42/nvim-web-devicons"                    -- colourful icons library
   use "moll/vim-bbye"                                   -- provides :Bdelete, which closes current buffer without exiting NeoVim, even when there are no more buffers
+  use "RishabhRD/popfix"                                -- popup UI components (req. by popui)
+  use "hood/popui.nvim"                                 -- a popup window for vim.ui.select and vim.ui.input actions
   -- Startup
   use "startup-nvim/startup.nvim"                       -- startup screen
   -- Help
@@ -75,7 +77,7 @@ return packer.startup(function(use)
   use "p00f/nvim-ts-rainbow"                            -- rainbow parentheses
   use "JoosepAlviste/nvim-ts-context-commentstring"     -- context-specific comments support (ie // vs /* */)
   use "lukas-reineke/indent-blankline.nvim"             -- indentation blankline
-   -- Language Server Protocol (LSP)
+  -- Language Server Protocol (LSP)
   use "neovim/nvim-lspconfig"                           -- LSP base configuration
   use "williamboman/nvim-lsp-installer"                 -- LSP server manager
   use "simrat39/rust-tools.nvim"                        -- advanced LSP client for Rust
@@ -87,7 +89,7 @@ return packer.startup(function(use)
   -- Searching
   use "nvim-telescope/telescope.nvim"                   -- a utility for finding stuff quickly
   use "nvim-telescope/telescope-fzf-native.nvim"        -- native sorter for Telescope
- -- Git
+  -- Git
   use "lewis6991/gitsigns.nvim"                         -- integration with Git
   -- Color schemes
   use "bluz71/vim-moonfly-colors"                       -- moonfly
