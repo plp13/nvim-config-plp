@@ -79,7 +79,7 @@ local function lsp_keymaps(bufnr)
       ["<Leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Perform code action" },
       ["<Leader>ll"] = { "<cmd>lua vim.diagnostic.open_float()<cr>", "View all LSP diagnostics" },
       ["<Leader>lq"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Manage LSP diagnostics" },
-      ["<Leader>lf"] = { "<cmd> lua vim.lsp.buf.formatting()<cr>", "Format code" },
+      ["<Leader>lf"] = { "<cmd> lua vim.lsp.buf.format({ async = true })<cr>", "Format code" },
       ["[d"] = { "<cmd>lua vim.diagnostic.goto_prev({ border = \"rounded\" })<cr>", "LSP: previous diagnostic" },
       ["gl"] = { "<cmd>lua vim.diagnostic.open_float({ border = \"rounded\" })<cr>",
         "LSP: show diagnostic information in window" },

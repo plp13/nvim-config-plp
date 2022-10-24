@@ -97,28 +97,20 @@ startup.setup {
   parts = { "header", "body", "footer" },
 }
 
--- Which-key mappings and annotations
-local wk_status_ok, wk = pcall(require, "which-key")
-if wk_status_ok then
-  -- Hijack startup.display() to create which-key annotations for all key mappings
-  startup.display_orig = startup.display
-  function startup.display(force)
-    startup.display_orig(force)
-    local bufnr = vim.api.nvim_get_current_buf()
-    wk.register({
-      ["1"] = "Find files: simple",
-      ["2"] = "Find files: grep",
-      ["3"] = "Open a recent file",
-      ["4"] = "Search history",
-      ["5"] = "Command history",
-      ["6"] = "New file",
-      ["<cr>"] = "Execute command",
-      ["o"] = "Open file",
-      ["<C-o>"] = "Open file in split",
-      ["<tab>"] = "Open section",
-    }, { mode = "n", buffer = bufnr })
+-- Hijack startup.display() to hide the vertical line at 80 columns the first time it gets called
+startup.display_orig = startup.display
+startup.display_ft = true
+function startup.display(force)
+  startup.display_orig(force)
+  if startup.display_ft then
+    vim.opt_local["colorcolumn"] = ""
+    startup.display_ft = false
   end
+end
 
-  -- Hack: also hide the line at 80 colums
-  vim.opt_local["colorcolumn"] = ""
+-- And then, hijack startup.remove_buffer() to reenstate it once startup.nvim goes away
+startup.remove_buffer_orig = startup.remove_buffer
+function startup.remove_buffer(info)
+  vim.opt_local["colorcolumn"] = "80"
+  startup.remove_buffer_orig(info)
 end
