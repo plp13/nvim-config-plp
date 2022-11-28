@@ -17,6 +17,7 @@ local options = {
   splitbelow = true,                        -- force all horizontal splits to go below current window
   splitright = true,                        -- force all vertical splits to go to the right of current window
   swapfile = false,                         -- creates a swapfile
+  title = true,                             -- set term title to the filename of the current buffer
   termguicolors = true,                     -- set term gui colors (most terminals support this)
   winblend = 15,                            -- make popup windows transparent
   pumblend = 15,                            -- make popup menus transparent
