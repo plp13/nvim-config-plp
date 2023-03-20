@@ -19,7 +19,7 @@ local servers = {
   "pyright",        -- Python
   "rust_analyzer",  -- Rust
   "sqls",           -- SQL
-  "sumneko_lua",    -- Lua
+  "lua_ls",         -- Lua
   "taplo",          -- TOML
   "yamlls",         -- YAML
 }

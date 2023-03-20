@@ -22,9 +22,9 @@ local function startup_cmd(cmd)
   end
 
   -- Open nvim-tree.lua, then focus on the empty buffer
-  local status_ok_tree, tree = pcall(require, "nvim-tree")
-  if status_ok_tree then
-    tree.open()
+  local status_ok_tree_api, tree_api = pcall(require, "nvim-tree.api")
+  if status_ok_tree_api then
+    tree_api.tree.open()
   end
   blur()
 
@@ -34,7 +34,24 @@ local function startup_cmd(cmd)
   end
 end
 
+-- If current buffer is associated a file or a directory, open nvim-tree.lua
+local function open_nvim_tree(data)
+  local is_file = vim.fn.filereadable(data.file) == 1
+  local is_directory = vim.fn.isdirectory(data.file) == 1
+
+  if (not is_file) and (not is_directory) then
+    return
+  end
+
+  local status_ok_tree_api, tree_api = pcall(require, "nvim-tree.api")
+  if status_ok_tree_api then
+    tree_api.tree.open()
+  end
+  blur()
+end
+
 return {
   blur = blur,
-  startup_cmd = startup_cmd
+  startup_cmd = startup_cmd,
+  open_nvim_tree = open_nvim_tree
 }
