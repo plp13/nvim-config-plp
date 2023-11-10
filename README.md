@@ -10,6 +10,7 @@ This is my personal configuration file for NeoVim, which I created by following 
 1. Replace the contents of your ``~/.config/nvim/`` with the contents of this project (don't forget to back up your existing configuration first!)
 2. Launch ``nvim``
 3. Issue ``:PackerUpdate`` (first run might produce errors; just ignore them, restart nvim and issue ``:PackerUpdate`` again)
+4. Issue ``:TSUpdate``
 4. Issue ``:LspInstallInfo`` and then press ``U`` to update all installed servers
 
 ## Freshness
