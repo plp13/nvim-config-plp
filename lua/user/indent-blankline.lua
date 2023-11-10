@@ -7,6 +7,13 @@ if not status_ok then
 end
 
 indent_blankline.setup {
-  -- Use a dashed line
-  indent = { char = "┊" }
+  indent = {
+    -- Use a dashed line
+    char = "┆"
+  },
+  scope = {
+    -- Do not underline start and end; it's annoying
+    show_start = false,
+    show_end = false
+  }
 }
