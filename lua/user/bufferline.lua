@@ -21,8 +21,8 @@ bufferline.setup {
     middle_mouse_command = nil,             -- command to execute when middle clicking a buffer - string | function, see "Mouse actions"
     -- Icons
     indicator = { icon = "▎" },             -- icon indicating active buffer
-    buffer_close_icon = "",                -- the close buffer icon
-    modified_icon = "",                    -- icon indicating a modified buffer
+    buffer_close_icon = "",                -- the close buffer icon
+    modified_icon = "◴",                    -- icon indicating a modified buffer
     close_icon = "",                       -- the close tab icon
     left_trunc_marker = "«",                -- more buffers to the left icon
     right_trunc_marker = "»",               -- more buffers to the right icon

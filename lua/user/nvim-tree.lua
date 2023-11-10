@@ -18,10 +18,10 @@ tree.setup {
   diagnostics = {
     enable = true,
     icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
     },
   },
   -- Upon opening the tree, find the file being edited and place the cursor over it
@@ -48,23 +48,23 @@ tree.setup {
   renderer = {
     icons = {
       glyphs = {
-        default = "",
-        symlink = "",
+        default = "",
+        symlink = "",
         git = {
-          unstaged = "",
-          staged = "S",
+          unstaged = "",
+          staged = "",
           unmerged = "",
-          renamed = "➜",
-          deleted = "",
-          untracked = "U",
-          ignored = "◌",
+          renamed = "",
+          deleted = "󰆳",
+          untracked = "",
+          ignored = "",
         },
         folder = {
-          default = "",
-          open = "",
-          empty = "",
-          empty_open = "",
-          symlink = "",
+          default = "󰉋",
+          open = "󰝰",
+          empty = "󱧴",
+          empty_open = "󰷏",
+          symlink = "󱧮",
         },
       },
     },

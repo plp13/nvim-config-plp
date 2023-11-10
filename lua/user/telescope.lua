@@ -31,27 +31,27 @@ local wk_status_ok, wk = pcall(require, "which-key")
 if wk_status_ok then
   wk.register({
     ["<Leader>f"] = {
-      "<cmd>Telescope find_files prompt_title=Find\\ files\\ (simple) prompt_prefix=\\ <cr>",
+      "<cmd>Telescope find_files prompt_title=Find\\ files\\ (simple) prompt_prefix=󰱽\\ <cr>",
       "Find files (simple)"
     },
     ["<Leader>g"] = {
-      "<cmd>Telescope live_grep prompt_title=Find\\ files\\ (grep) prompt_prefix=\\ <cr>",
+      "<cmd>Telescope live_grep prompt_title=Find\\ files\\ (grep) prompt_prefix=󱁼\\ <cr>",
       "Find files (grep)"
     },
     ["<Leader>r"] = {
-      "<cmd>Telescope oldfiles prompt_title=Open\\ a\\ recent\\ file prompt_prefix=\\ <cr>",
+      "<cmd>Telescope oldfiles prompt_title=Open\\ a\\ recent\\ file prompt_prefix=󱋢\\ <cr>",
       "Open a recent file"
     },
     ["<Leader>s"] = {
-      "<cmd>Telescope search_history prompt_title=Search\\ history prompt_prefix=\\ <cr>",
+      "<cmd>Telescope search_history prompt_title=Search\\ history prompt_prefix=󰋚\\ <cr>",
       "Search history"
     },
     ["<Leader>c"] = {
-      "<cmd>Telescope command_history prompt_title=Command\\ history prompt_prefix=﬍\\ <cr>",
+      "<cmd>Telescope command_history prompt_title=Command\\ history prompt_prefix=󰋚\\ <cr>",
       "Command history"
     },
     ["<Leader>b"] = {
-      "<cmd>Telescope buffers prompt_title=Open\\ buffers prompt_prefix=\\ <cr>",
+      "<cmd>Telescope buffers prompt_title=Open\\ buffers prompt_prefix=󱇨\\ <cr>",
       "Open buffers"
     },
   }, { mode = "n" })
