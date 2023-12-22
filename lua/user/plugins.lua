@@ -75,7 +75,6 @@ return packer.startup(function(use)
     run=":TSUpdate",
   }
   use "p00f/nvim-ts-rainbow"                            -- rainbow parentheses
-  use "JoosepAlviste/nvim-ts-context-commentstring"     -- context-specific comments support (ie // vs /* */)
   use "lukas-reineke/indent-blankline.nvim"             -- indentation blankline
   -- Language Server Protocol (LSP)
   use "neovim/nvim-lspconfig"                           -- LSP base configuration

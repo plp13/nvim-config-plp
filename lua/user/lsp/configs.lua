@@ -12,7 +12,7 @@ local lspconfig = require("lspconfig")
 -- Feel free to add more
 local servers = {
   "bashls",             -- Bash
-  "clangd",             -- C/C++
+  "ccls",               -- C/C++
   "dockerls",           -- Docker
   "jsonls",             -- JSON
   "eslint",             -- Javascript/Typescript

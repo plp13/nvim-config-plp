@@ -24,7 +24,7 @@ M.setup = function()
     signs = {
       active = signs,
     },
-    -- Update diagnostics as you type
+    -- Do not update diagnostics as you type; too slow
     update_in_insert = true,
     -- Enable underlining stuff
     underline = true,
