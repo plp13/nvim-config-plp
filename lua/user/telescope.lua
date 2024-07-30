@@ -29,30 +29,36 @@ telescope.setup {
 -- Which-key mappings for telescope.nvim
 local wk_status_ok, wk = pcall(require, "which-key")
 if wk_status_ok then
-  wk.register({
-    ["<Leader>f"] = {
+  wk.add({
+    {
+      "<Leader>f",
       "<cmd>Telescope find_files prompt_title=Find\\ files\\ (simple) prompt_prefix=󰱽\\ <cr>",
-      "Find files (simple)"
+      desc = "Find files (simple)"
     },
-    ["<Leader>g"] = {
+    {
+      "<Leader>g",
       "<cmd>Telescope live_grep prompt_title=Find\\ files\\ (grep) prompt_prefix=󱁼\\ <cr>",
-      "Find files (grep)"
+      desc = "Find files (grep)"
     },
-    ["<Leader>r"] = {
+    {
+      "<Leader>r",
       "<cmd>Telescope oldfiles prompt_title=Open\\ a\\ recent\\ file prompt_prefix=󱋢\\ <cr>",
-      "Open a recent file"
+      desc = "Open a recent file"
     },
-    ["<Leader>s"] = {
+    {
+      "<Leader>s",
       "<cmd>Telescope search_history prompt_title=Search\\ history prompt_prefix=󰋚\\ <cr>",
-      "Search history"
+      desc = "Search history"
     },
-    ["<Leader>c"] = {
+    {
+      "<Leader>c",
       "<cmd>Telescope command_history prompt_title=Command\\ history prompt_prefix=󰋚\\ <cr>",
-      "Command history"
+      desc = "Command history"
     },
-    ["<Leader>b"] = {
+    {
+      "<Leader>b",
       "<cmd>Telescope buffers prompt_title=Open\\ buffers prompt_prefix=󱇨\\ <cr>",
-      "Open buffers"
+      desc = "Open buffers"
     },
-  }, { mode = "n" })
+    { mode = "n" }, })
 end

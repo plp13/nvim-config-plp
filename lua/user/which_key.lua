@@ -15,17 +15,12 @@ wk.setup {
       suggestions = 36
     },
   },
-  -- Scroll popup contents up and down using C-j and C-k
-  popup_mappings = {
-    scroll_down = '<c-k>',
-    scroll_up = '<c-j>',
-  },
   -- Look
   layout = {
     height = { min = 2, max = 40 },
     width = { min = 20, max = 70 },
   },
-  window = {
+  win = {
     border = "single",
   },
 }
@@ -39,63 +34,84 @@ local opts = { noremap = true, silent = true }
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
+-- Which-key has some issues mapping for all modes; we'll be using this function instead
+mapall = function(key, op)
+  vim.cmd(":nmap " .. key .. " " .. op)
+  vim.cmd(":imap " .. key .. " " .. op)
+  vim.cmd(":vmap " .. key .. " " .. op)
+  vim.cmd(":omap " .. key .. " " .. op)
+  vim.cmd(":tmap " .. key .. " " .. op)
+end
+
 -- Key mappings for *all* modes
 
 -- M-/: launch :WhichKey to get help
--- M-n: new buffer (File/New)
--- M-s: save buffer (File/Save)
--- M-w: delete buffer (File/Close)
--- M-c: clear search highlights
--- M-b: toggle (soft) line break
--- M-e: toggle highlighting spelling mistakes
-for _, m in pairs({ "n", "v", "i", "x", "c", "o", "s", "t" }) do
-  wk.register({
-    ["<M-/>"] = { "<cmd>WhichKey<cr>", "Show all keyboard shortcuts" },
-    ["<M-n>"] = { "<cmd>enew<cr>", "New empty buffer" },
-    ["<M-s>"] = { "<cmd>write<cr>", "Save buffer" },
-    ["<M-w>"] = { "<cmd>Bdelete<cr>", "Delete buffer" },
-    ["<M-c>"] = { "<cmd>nohlsearch<cr>", "Clear search highlights" },
-    ["<M-b>"] = { "<cmd>set wrap! linebreak<cr>", "Toggle (soft) line break"},
-    ["<M-e>"] = { "<cmd>set spell!<cr>", "Toggle highlighting spelling mistakes"},
-    -- The following entries concern fixes and tidying up
-    ["Y"] = "Yank line", -- fix missing which-key entry
-  }, { mode = m })
-end
+-- C-n: new buffer (File/New)
+-- C-s: save buffer (File/Save)
+-- C-w: delete buffer (File/Close)
+-- C-c: clear search highlights
+-- C-b: toggle (soft) line break
+-- C-e: toggle highlighting spelling mistakes
+wk.add({
+  { "<M-/>",       desc = "Show all keyboard shortcuts" },
+  { "<M-n>",       desc = "New empty buffer" },
+  { "<M-s>",       desc = "Save buffer" },
+  { "<M-w>",       desc = "Delete buffer" },
+  { "<M-c>",       desc = "Clear search highlights" },
+  { "<M-b>",       desc = "Toggle (soft) line break" },
+  { "<C-e>",       desc = "Toggle highlighting spelling mistakes" },
+  { mode = "nivot" }, })
+mapall("<M-/>", "<cmd>WhichKey<cr>")
+mapall("<M-n>", "<cmd>enew<cr>")
+mapall("<M-s>", "<cmd>write<cr>")
+mapall("<M-w>", "<cmd>Bdelete<cr>")
+mapall("<M-c>", "<cmd>nohlsearch<cr>")
+mapall("<M-b>", "<cmd>set wrap! linebreak<cr>")
+mapall("<M-e>", "<cmd>set spell!<cr>")
+
+-- Navigate through windows using C-<arrow key> (as well as C-w followed by h, j, k, or l)
+wk.add({
+  { "<C-Up>",      desc = "Go to the up window" },
+  { "<C-Down>",    desc = "Go to the down window" },
+  { "<C-Left>",    desc = "Go to the left window" },
+  { "<C-Right>",   desc = "Go to the right window" },
+  { mode = "nivot" }, })
+mapall("<C-Up>", "<esc><C-w>k")
+mapall("<C-Down>", "<esc><C-w>j")
+mapall("<C-Left>", "<esc><C-w>h")
+mapall("<C-Right>", "<esc><C-w>l")
+
+-- Resize current window using M-<arrow key>
+-- This currently doesn't work, for unknown reasons
+wk.add({
+  { "<M-Up>",    desc = "Make window taller" },
+  { "<M-Down>",  desc = "Make window shorter" },
+  { "<M-Left>",  desc = "Make window wider" },
+  { "<M-Right>", desc = "Make window narrower" },
+  { mode = "nivot" }, })
+mapall("<M-Up>", "<cmd>resize +2<cr>")
+mapall("<M-Down>", "<cmd>resize -2<cr>")
+mapall("<M-Left>", "<cmd>vertical resize +2<cr>")
+mapall("<M-Right>", "<cmd>vertical resize -2<cr>")
 
 -- Key mappings for *normal* mode
 
--- Navigate through windows using C-<arrow key> (as well as C-w followed by h, j, k, or l)
-wk.register({
-  ["<C-Up>"] = { "<C-w>k", "Go to the up window" },
-  ["<C-Down>"] = { "<C-w>j", "Go to the down window" },
-  ["<C-Left>"] = { "<C-w>h", "Go to the left window" },
-  ["<C-Right>"] = { "<C-w>l", "Go to the right window" },
-}, { mode = "n" })
-
--- Resize current window using M-<arrow key>
-wk.register({
-  ["<M-Up>"] = { "<cmd>resize +2<cr>", "Make window taller" },
-  ["<M-Down>"] = { "<cmd>resize -2<cr>", "Make window shorter" },
-  ["<M-Left>"] = { "<cmd>vertical resize +2<cr>", "Make window wider" },
-  ["<M-Right>"] = { "<cmd>vertical resize -2<cr>", "Make window narrower" },
-}, { mode = "n" })
-
 -- Move current line up using M-k and down using M-j
-wk.register({
-  ["<M-k>"] = { "<esc><cmd>move .-2<cr>", "Move text up" },
-  ["<M-j>"] = { "<esc><cmd>move .+1<cr>", "Move text down" },
-}, { mode = "n" })
+wk.add({
+  { "<M-k>",   "<esc><cmd>move .-2<cr>", desc = "Move text up" },
+  { "<M-j>",   "<esc><cmd>move .+1<cr>", desc = "Move text down" },
+  { mode = "n" }, })
 
 -- Open various terminals using <Leader>-*
-wk.register({
-  ["<Leader>t"] = "Open a terminal",
-  ["<Leader>tt"] = { "<cmd>split term://$SHELL<cr>", "Open a shell terminal" },
-  ["<Leader>tl"] = { "<cmd>split term://lua<cr>", "Open a Lua terminal" },
-  ["<Leader>tn"] = { "<cmd>split term://node<cr>", "Open a Node.js terminal" },
-  ["<Leader>tp"] = { "<cmd>split term://python<cr>", "Open a Python terminal" },
-  ["<Leader>ti"] = { "<cmd>split term://ipython<cr>", "Open an iPython terminal" },
-  ["<Leader>ty"] = { "<cmd>split term://pypy<cr>", "Open an PyPy terminal" },
-}, { mode = "n" })
+wk.add({
+  { "<Leader>t",  desc = "Open a terminal" },
+  { "<Leader>tt", "<cmd>split term://$SHELL<cr>",  desc = "Open a shell terminal" },
+  { "<Leader>tl", "<cmd>split term://lua<cr>",     desc = "Open a Lua terminal" },
+  { "<Leader>tn", "<cmd>split term://node<cr>",    desc = "Open a Node.js terminal" },
+  { "<Leader>tp", "<cmd>split term://python<cr>",  desc = "Open a Python terminal" },
+  { "<Leader>ti", "<cmd>split term://ipython<cr>", desc = "Open an iPython terminal" },
+  { "<Leader>ty", "<cmd>split term://pypy<cr>",    desc = "Open an PyPy terminal" },
+  { mode = "n" }, })
 
 -- Key mappings for *insert* mode
 
@@ -104,27 +120,7 @@ wk.register({
 -- Key mappings for *visual* mode
 
 -- Indent selected text using > or <
-wk.register({
-  ["<"] = { "<gv", "Indent selection left" },
-  [">"] = { ">gv", "Un-indent selection right" },
-}, { mode = "v" })
-
--- Move selected text up using M-k, or down using M-j
-wk.register({
-  ["<M-k>"] = { "<cmd>move .-2<cr>==", "Move text up" },
-  ["<M-j>"] = { "<cmd>move .+1<cr>==", "Move text down" },
-}, { mode = "v" })
-
--- When selecting text and then pasting over it, don't replace the clipboard contents with the selection
-keymap("v", "p", '"_dP', opts)
-wk.register({
-  ["p"] = "Paste",
-}, { mode = "v" })
-
--- Key mappings for *visual block* mode
-
--- Move selected text down using A-j, or up using A-k
-wk.register({
-  ["<M-k>"] = { ":move '<-2<cr>gv-gv", "Move text up" },
-  ["<M-j>"] = { ":move '>+1<cr>gv-gv", "Move text down" },
-}, { mode = "v" })
+wk.add({
+  { "<",       "<gv", desc = "Indent selection left" },
+  { ">",       ">gv", desc = "Un-indent selection right" },
+  { mode = "v" }, })

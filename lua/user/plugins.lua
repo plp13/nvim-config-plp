@@ -49,6 +49,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim"                           -- useful lua functions (req. by multiple plugins)
   use "RRethy/vim-illuminate"                           -- illuminate text in buffer
   use "kyazdani42/nvim-web-devicons"                    -- colourful icons library
+  use "echasnovski/mini.icons"                          -- even more colourful icons
   use "moll/vim-bbye"                                   -- provides :Bdelete, which closes current buffer without exiting NeoVim, even when there are no more buffers
   use "RishabhRD/popfix"                                -- popup UI components (req. by popui)
   use "hood/popui.nvim"                                 -- a popup window for vim.ui.select and vim.ui.input actions

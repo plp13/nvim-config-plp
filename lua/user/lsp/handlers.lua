@@ -67,24 +67,28 @@ end
 local function lsp_keymaps(bufnr)
   local wk_status_ok, wk = pcall(require, "which-key")
   if wk_status_ok then
-    wk.register({
-      ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "LSP: jump to declaration" },
-      ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<cr>", "LSP: jump to definition" },
-      ["K"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "LSP: view information" },
-      ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "LSP: view implementation" },
-      ["<C-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "LSP: view show signature info" },
-      ["gr"] = { "<cmd>lua vim.lsp.buf.references()<cr>", "LSP: view all references to what's under the cursor" },
-      ["<Leader>l"] = "Language Server Protocol (LSP)",
-      ["<Leader>ln"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename all references" },
-      ["<Leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Perform code action" },
-      ["<Leader>ll"] = { "<cmd>lua vim.diagnostic.open_float()<cr>", "View all LSP diagnostics" },
-      ["<Leader>lq"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Manage LSP diagnostics" },
-      ["<Leader>lf"] = { "<cmd> lua vim.lsp.buf.format({ async = true })<cr>", "Format code" },
-      ["[d"] = { "<cmd>lua vim.diagnostic.goto_prev({ border = \"rounded\" })<cr>", "LSP: previous diagnostic" },
-      ["gl"] = { "<cmd>lua vim.diagnostic.open_float({ border = \"rounded\" })<cr>",
-        "LSP: show diagnostic information in window" },
-      ["]d"] = { "<cmd>lua vim.diagnostic.goto_next({ border = \"rounded\" })<cr>", "LSP: next diagnostic" },
-    }, { mode = "n", buffer = bufnr })
+    wk.add({
+      { "gD",         "<cmd>lua vim.lsp.buf.declaration()<cr>",                          desc = "LSP: jump to declaration" },
+      { "gd",         "<cmd>lua vim.lsp.buf.definition()<cr>",                           desc = "LSP: jump to definition" },
+      { "K",          "<cmd>lua vim.lsp.buf.hover()<cr>",                                desc = "LSP: view information" },
+      { "gi",         "<cmd>lua vim.lsp.buf.implementation()<cr>",                       desc = "LSP: view implementation" },
+      { "<C-k>",      "<cmd>lua vim.lsp.buf.signature_help()<cr>",                       desc = "LSP: view show signature info" },
+      { "gr",         "<cmd>lua vim.lsp.buf.references()<cr>",                           desc = "LSP: view all references to what's under the cursor" },
+      { "<Leader>l",  desc = "Language Server Protocol (LSP)" },
+      { "<Leader>ln", "<cmd>lua vim.lsp.buf.rename()<cr>",                               desc = "Rename all references" },
+      { "<Leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>",                          desc = "Perform code action" },
+      { "<Leader>ll", "<cmd>lua vim.diagnostic.open_float()<cr>",                        desc = "View all LSP diagnostics" },
+      { "<Leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>",                        desc = "Manage LSP diagnostics" },
+      { "<Leader>lf", "<cmd> lua vim.lsp.buf.format({ async = true })<cr>",              desc = "Format code" },
+      { "[d",         "<cmd>lua vim.diagnostic.goto_prev({ border = \"rounded\" })<cr>", desc = "LSP: previous diagnostic" },
+      {
+        "gl",
+        "<cmd>lua vim.diagnostic.open_float({ border = \"rounded\" })<cr>",
+        desc =
+        "LSP: show diagnostic information in window"
+      },
+      { "]d",       "<cmd>lua vim.diagnostic.goto_next({ border = \"rounded\" })<cr>", desc = "LSP: next diagnostic" },
+      { mode = "n", buffer = bufnr }, })
   end
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end

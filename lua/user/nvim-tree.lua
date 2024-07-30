@@ -82,32 +82,8 @@ end
 -- Which-key mappings and annotations
 local wk_status_ok, wk = pcall(require, "which-key")
 if wk_status_ok then
-
   -- Map <Leader>e to toggle the tree from any buffer
-  wk.register({
-    ["<Leader>e"] = { "<cmd>NvimTreeToggle<cr>", "Toggle file manager" },
-  }, { mode = "n" })
-
-  -- Hijack nvim-tree.actions.apply_mappings() to create which-key annotations for all key mappings
-  -- The annotations are automatically retrieved from table nvim-tree.actions.mappings
-  local tree_actions = require("nvim-tree.actions")
-  tree_actions.apply_mappings_orig = tree_actions.apply_mappings
-  function tree_actions.apply_mappings(bufnr)
-    tree_actions.apply_mappings_orig(bufnr)
-    for _, mapping in pairs(tree_actions.mappings) do
-      local key = mapping.key
-      local desc = mapping.desc
-      if type(key) == "table" then
-        for _, subkey in pairs(key) do
-          wk.register({
-            [subkey] = desc:gsub("^%l", string.upper)
-          }, { mode = "n", buffer = bufnr })
-        end
-      else
-        wk.register({
-          [key] = desc:gsub("^%l", string.upper)
-        }, { mode = "n", buffer = bufnr })
-      end
-    end
-  end
+  wk.add({
+    { "<Leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Toggle file manager" },
+    { mode = "n" }, })
 end
