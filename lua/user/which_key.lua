@@ -23,6 +23,9 @@ wk.setup {
   win = {
     border = "single",
   },
+  icons = {
+    mappings = false
+  }
 }
 
 -- KEY MAPPINGS
@@ -82,7 +85,6 @@ mapall("<C-Left>", "<esc><C-w>h")
 mapall("<C-Right>", "<esc><C-w>l")
 
 -- Resize current window using M-<arrow key>
--- This currently doesn't work, for unknown reasons
 wk.add({
   { "<M-Up>",    desc = "Make window taller" },
   { "<M-Down>",  desc = "Make window shorter" },
