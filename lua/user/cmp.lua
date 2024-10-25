@@ -147,4 +147,7 @@ cmp.setup {
     ghost_text = false,
     native_menu = false,
   },
+  performance = {
+    max_view_entries = 7,
+  },
 }

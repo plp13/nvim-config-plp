@@ -25,7 +25,7 @@ M.setup = function()
       active = signs,
     },
     -- Update diagnostics as you type
-    update_in_insert = false,
+    update_in_insert = true,
     -- Enable underlining stuff
     underline = true,
     -- Sort diagnostics by severity

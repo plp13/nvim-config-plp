@@ -24,7 +24,7 @@ configs.setup {
   highlight = {
     enable = true,                              -- false will disable the whole extension
     disable = { "" },                           -- languages for which highlighting will be disabled
-    additional_vim_regex_highlighting = true,   -- also do syntax highlighting using old-style Vim rules
+    additional_vim_regex_highlighting = false,  -- disable syntax highlighting using old-style Vim rules
   },
   -- Automatic indentation
   indent = {
