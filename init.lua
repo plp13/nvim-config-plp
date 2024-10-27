@@ -19,9 +19,6 @@ require "user.which_key"
 require "user.lualine"
 require "user.bufferline"
 
--- Completions and snippets
-require "user.cmp"
-
 -- Syntax highlighting
 require "user.treesitter"
 require "user.indent-blankline"
@@ -29,6 +26,9 @@ require "user.indent-blankline"
 -- Language Server Protocol (LSP)
 require "user.lsp"
 require "user.rust-tools"
+
+-- Auto-completion
+require "user.coq"
 
 -- Editing utilities
 require "user.autopairs"

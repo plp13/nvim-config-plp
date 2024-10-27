@@ -6,25 +6,31 @@ if not status_ok then
   return
 end
 
+-- Require coq (exit if it's not installed)
+local status_ok, coq = pcall(require, "coq")
+if not status_ok then
+  return
+end
+
 local lspconfig = require("lspconfig")
 
 -- LSP servers (languages) to configure
 -- Feel free to add more
 local servers = {
-  "bashls",             -- Bash
-  "ccls",               -- C/C++
-  "dockerls",           -- Docker
-  "jsonls",             -- JSON
-  "eslint",             -- Javascript/Typescript
-  "html",               -- HTML
-  "marksman",           -- Markdown
-  "pyright",            -- Python
-  "rust_analyzer",      -- Rust
-  "hls",                -- Haskell
-  "sqlls",              -- SQL
-  "lua_ls",             -- Lua
-  "taplo",              -- TOML
-  "yamlls",             -- YAML
+  "bashls",        -- Bash
+  "ccls",          -- C/C++
+  "dockerls",      -- Docker
+  "jsonls",        -- JSON
+  "eslint",        -- Javascript/Typescript
+  "html",          -- HTML
+  "marksman",      -- Markdown
+  "pyright",       -- Python
+  "rust_analyzer", -- Rust
+  "hls",           -- Haskell
+  "sqlls",         -- SQL
+  "lua_ls",        -- Lua
+  "taplo",         -- TOML
+  "yamlls",        -- YAML
 }
 
 -- Instruct nvim-lsp-installer to automatically install the aforementioned LSP servers
@@ -47,5 +53,5 @@ for _, server in pairs(servers) do
   end
 
   -- Set the server up, using the setup function defined in handlers
-  lspconfig[server].setup(opts)
+  lspconfig[server].setup(coq.lsp_ensure_capabilities(opts))
 end

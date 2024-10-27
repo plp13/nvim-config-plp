@@ -1,4 +1,4 @@
--- Configuration fog gitsigns.nvim: integration with Git
+-- Configuration for gitsigns.nvim: integration with Git
 
 -- Require gitsigns (exit if it's not installed)
 local status_ok, gitsigns = pcall(require, "gitsigns")

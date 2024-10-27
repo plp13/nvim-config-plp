@@ -61,15 +61,7 @@ return packer.startup(function(use)
   use "nvim-lualine/lualine.nvim"                       -- an enhanced status line
   use "akinsho/bufferline.nvim"                         -- an enhanced buffer line
   -- Completions and snippets
-  use "L3MON4D3/LuaSnip"                                -- snippet engine
-  use "rafamadriz/friendly-snippets"                    -- collection of snippets
-  use "hrsh7th/nvim-cmp"                                -- completion engine
-  use "hrsh7th/cmp-buffer"                              -- buffer completions
-  use "hrsh7th/cmp-path"                                -- path completions
-  use "hrsh7th/cmp-cmdline"                             -- command line completions
-  use "saadparwaiz1/cmp_luasnip"                        -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"                            -- LSP completions
-  use "hrsh7th/cmp-nvim-lua"                            -- completions for the NeoVim Lua API
+  use "ms-jpq/coq_nvim"                                 -- a very fast auto-completer
   -- Syntax highlighting
   use {
     "nvim-treesitter/nvim-treesitter",                  -- better syntax highlighting and indentation
