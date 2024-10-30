@@ -46,4 +46,9 @@ for k, v in pairs(options) do
 end
 
 -- Extra Vimscript commands
-vim.cmd "set whichwrap+=<,>,[,],h,l"        -- when begining/end of line is reached while scrolling left/right, go to the previous/next line (resp.)
+
+-- when begining/end of line is reached while scrolling left/right, go to the previous/next line (resp.)
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+
+-- Recognize .cog files as C/C++
+vim.cmd("autocmd BufRead,BufNewFile *.cog set filetype=cpp")
