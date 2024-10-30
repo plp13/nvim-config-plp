@@ -74,7 +74,7 @@ tree.setup {
 -- Upon startup, call utility function open_nvim_tree()
 -- This will open nvim-tree.lua if the current buffer is associated with a file
 -- or a directory
-utils_status_ok, utils = pcall(require, "user/utils")
+local utils_status_ok, utils = pcall(require, "user/utils")
 if utils_status_ok then
   vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = utils.open_nvim_tree })
 end

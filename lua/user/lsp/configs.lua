@@ -7,7 +7,8 @@ if not status_ok then
 end
 
 -- Require coq (exit if it's not installed)
-local status_ok, coq = pcall(require, "coq")
+local coq
+status_ok, coq = pcall(require, "coq")
 if not status_ok then
   return
 end

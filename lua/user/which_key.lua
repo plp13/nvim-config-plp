@@ -38,7 +38,7 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- Which-key has some issues mapping for all modes; we'll be using this function instead
-mapall = function(key, op)
+local mapall = function(key, op)
   vim.cmd(":nmap " .. key .. " " .. op)
   vim.cmd(":imap " .. key .. " " .. op)
   vim.cmd(":vmap " .. key .. " " .. op)
