@@ -21,7 +21,7 @@ wk.setup {
     width = { min = 20, max = 70 },
   },
   win = {
-    border = "single",
+    border = "rounded",
   },
   icons = {
     mappings = false
