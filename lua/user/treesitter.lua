@@ -31,13 +31,4 @@ configs.setup {
     enable = true,                              -- false will disable indentation for all languages
     disable = { "" },                           -- languages for which indentation will be disabled
   },
-  -- Rainbow parentheses
-  rainbow = {
-    enable = true,                              -- false will disable the whole extension
-    -- disable = { "jsx", "cpp" }               -- language for which rainbow parentheses will be disabled
-    extended_mode = true,                       -- also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil,                       -- do not enable the extension for files with more than n lines (nil enables it for all files)
-    -- colors = {},                             -- parentheses colours (a table of hex strings)
-    -- termcolors = {},                         -- parentheses colours (a table of colour name strings)
-  },
 }

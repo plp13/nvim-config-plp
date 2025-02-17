@@ -67,7 +67,6 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",                  -- better syntax highlighting and indentation
     run=":TSUpdate",
   }
-  use "p00f/nvim-ts-rainbow"                            -- rainbow parentheses
   use "lukas-reineke/indent-blankline.nvim"             -- indentation blankline
   -- Language Server Protocol (LSP)
   use "neovim/nvim-lspconfig"                           -- LSP base configuration
