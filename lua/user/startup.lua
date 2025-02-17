@@ -6,7 +6,13 @@ if not status_ok then
   return
 end
 
-startup.setup {
+-- Require which-key (exit if it's not installed)
+local status_ok, wk = pcall(require, "which-key")
+if not status_ok then
+  return
+end
+
+local options = {
   header = {
     -- Header section: some ASCII art
     type = "text",
@@ -97,20 +103,37 @@ startup.setup {
   parts = { "header", "body", "footer" },
 }
 
--- Hijack startup.display() to hide the vertical line at 80 columns the first time it gets called
+startup.setup(options)
+
+-- Hijack startup.display()
 startup.display_orig = startup.display
 startup.display_ft = true
 function startup.display(force)
   startup.display_orig(force)
+  -- If first time, then...
   if startup.display_ft then
-    vim.opt_local["colorcolumn"] = ""
     startup.display_ft = false
+    -- hide vertical column
+    vim.opt_local["colorcolumn"] = ""
+    -- add which-key help strings for mappings
+    for i, e in ipairs(options.body.content) do
+      wk.add({
+        { e[3],           desc = e[1] },
+        { mode = "nivot", buffer = 0 }, })
+    end
   end
 end
 
--- And then, hijack startup.remove_buffer() to reenstate it once startup.nvim goes away
+-- And then, hijack startup.remove_buffer()
 startup.remove_buffer_orig = startup.remove_buffer
 function startup.remove_buffer(info)
+  -- reenstate vertical column
   vim.opt_local["colorcolumn"] = "80"
+  -- hide which-key help strings
+  for i, e in ipairs(options.body.content) do
+    wk.add({
+      { e[3],           hidden = true },
+      { mode = "nivot", buffer = 0 }, })
+  end
   startup.remove_buffer_orig(info)
 end
