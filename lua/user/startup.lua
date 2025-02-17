@@ -121,6 +121,13 @@ function startup.display(force)
         { e[3],           desc = e[1] },
         { mode = "nivot", buffer = 0 }, })
     end
+    -- hide which-key help strings for unused mappings
+    wk.add({
+      { "o",            hidden = true },
+      { "<c-o>",        hidden = true },
+      { "<cr>",         hidden = true },
+      { "<tab>",        hidden = true },
+      { mode = "nivot", buffer = 0 }, })
   end
 end
 
