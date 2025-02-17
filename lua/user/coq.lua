@@ -7,6 +7,9 @@ if not status_ok then
 end
 
 vim.g.coq_settings = {
+  completion = {
+    always = false,                        -- only bring up popup menu with CTRL-=
+  },
   keymap = {
     recommended = false,                   -- we'll set up our own keymap
   },
