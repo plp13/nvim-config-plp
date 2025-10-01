@@ -1,5 +1,25 @@
 -- Utilities
 
+local _notify_orig = vim.notify
+
+-- Disable all notifications that contain "deprecated"
+local function depr_notify_disable()
+  local _notify_filter = function(text, level, opts)
+    if type(text) == "string" and string.find(text, "deprecated", 1, true) then
+      return
+    end
+
+    _notify_orig(text, level, opts)
+  end
+
+  vim.notify = _notify_filter
+end
+
+-- Re-enable all notifications that contain "deprecated"
+local function depr_notify_enable()
+  vim.notify = _notify_orig
+end
+
 -- Focus on next window
 local function blur()
   local my_window = vim.api.nvim_get_current_win()
@@ -51,6 +71,8 @@ local function open_nvim_tree(data)
 end
 
 return {
+  depr_notify_disable = depr_notify_disable,
+  depr_notify_enable = depr_notify_enable,
   blur = blur,
   startup_cmd = startup_cmd,
   open_nvim_tree = open_nvim_tree

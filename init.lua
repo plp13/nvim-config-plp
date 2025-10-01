@@ -1,5 +1,11 @@
 -- Master configuration file for NeoVim
 
+-- Disable all notifications that contain "deprecated"
+-- Comment out the following two lines after updating, to check if there are any
+-- new deprecation notifications
+local utils = require "user.utils"
+utils.depr_notify_disable()
+
 -- General options and plugins
 require "user.options"
 require "user.plugins"
@@ -45,3 +51,6 @@ require "user.telescope"
 
 -- Git
 require "user.gitsigns"
+
+-- Re-enable all notifications that contain "deprecated"
+utils.depr_notify_enable()
