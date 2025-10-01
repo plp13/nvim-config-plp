@@ -1,7 +1,7 @@
 -- Language Server Protocol: configuration entrypoint
 
--- Require lspconfig (exit if it's not installed)
-local status_ok, _ = pcall(require, "lspconfig")
+-- Require mason (exit if it's not installed)
+local status_ok, mason = pcall(require, "mason")
 if not status_ok then
   return
 end

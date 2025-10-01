@@ -10,7 +10,7 @@ configs.setup {
   -- Language parsers management
   ensure_installed = "all",                     -- languages to install: either "all", or a list of languages
   sync_install = false,                         -- install parsers synchronously (only applied to `ensure_installed`)
-  ignore_install = { "phpdoc" },                -- languages to not install
+  ignore_install = { "ipkg", "earthfile" },     -- languages to not install
   -- Integrate with autopairs
   autopairs = {
     enable = true,

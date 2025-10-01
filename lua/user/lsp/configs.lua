@@ -1,19 +1,22 @@
 -- Language Server Protocol: main configuration file
 
--- Require nvim-lsp-installer (exit if it's not installed)
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+-- Require mason (exit if it's not installed)
+local status_ok, mason = pcall(require, "mason")
+if not status_ok then
+  return
+end
+
+-- Require mason-lspconfig (exit if it's not installed)
+local status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status_ok then
   return
 end
 
 -- Require coq (exit if it's not installed)
-local coq
-status_ok, coq = pcall(require, "coq")
+local status_ok, coq = pcall(require, "coq")
 if not status_ok then
   return
 end
-
-local lspconfig = require("lspconfig")
 
 -- LSP servers (languages) to configure
 -- Feel free to add more
@@ -35,7 +38,8 @@ local servers = {
 }
 
 -- Instruct nvim-lsp-installer to automatically install the aforementioned LSP servers
-lsp_installer.setup {
+mason.setup({})
+mason_lspconfig.setup {
   ensure_installed = servers
 }
 
@@ -54,5 +58,6 @@ for _, server in pairs(servers) do
   end
 
   -- Set the server up, using the setup function defined in handlers
-  lspconfig[server].setup(coq.lsp_ensure_capabilities(opts))
+  vim.lsp.enable(server)
+  vim.lsp.config(server, coq.lsp_ensure_capabilities(opts))
 end

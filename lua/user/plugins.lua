@@ -70,8 +70,11 @@ return packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"             -- indentation blankline
   -- Language Server Protocol (LSP)
   use "neovim/nvim-lspconfig"                           -- LSP base configuration
-  use "williamboman/nvim-lsp-installer"                 -- LSP server manager
+  use "mason-org/mason.nvim"                            -- LSP server manager
+  use "mason-org/mason-lspconfig.nvim"                  -- LSP server manager (compatibility hooks with discontinued lspconfig plugin)
   use "simrat39/rust-tools.nvim"                        -- advanced LSP client for Rust
+  -- Debug Adapter Protocol (DAP) -- work in progress, thus currently disabled
+  -- use "mfussenegger/nvim-dap"                        -- Debug Adapter Protocol
   -- Editing utilities
   use "windwp/nvim-autopairs"                           -- automatically close parentheses, strings, etc.
   use "numToStr/Comment.nvim"                           -- comment out lines and blocks easily

@@ -27,6 +27,9 @@ require "user.indent-blankline"
 require "user.lsp"
 require "user.rust-tools"
 
+-- Debug Adapter Protocol (DAP)
+require "user.dap"
+
 -- Auto-completion
 require "user.coq"
 
