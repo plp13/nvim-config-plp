@@ -22,7 +22,7 @@ end
 -- Feel free to add more
 local servers = {
   "bashls",        -- Bash
-  "ccls",          -- C/C++
+  "clangd",        -- C/C++
   "dockerls",      -- Docker
   "jsonls",        -- JSON
   "eslint",        -- Javascript/Typescript
